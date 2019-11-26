@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addPizza } from '../actions/pizzaList'
-import { selectPizza, unselectPizza } from '../actions/pizzaDetails'
+import { selectPizza } from '../actions/pizzaDetails'
 
 class PizzaList extends React.Component {
   state = {

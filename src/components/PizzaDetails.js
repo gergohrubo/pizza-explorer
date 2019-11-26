@@ -1,7 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import { unselectPizza } from '../actions/pizzaDetails'
 
 class PizzaDetails extends React.Component {
+  handleClick = () => {
+    this.props.unselectPizza()
+  }
   render() {
     const pizza = this.props.pizza;
 
@@ -13,7 +17,7 @@ class PizzaDetails extends React.Component {
       <div>
         <h2>
           {pizza.name}
-          <button>close</button>
+          <button onClick={this.handleClick}>close</button>
         </h2>
         <p>
           <em>{pizza.description}</em>
@@ -32,4 +36,12 @@ function mapStateToProps(reduxState) {
   };
 }
 
-export default connect(mapStateToProps)(PizzaDetails);
+const mapDispatchToProps = function (dispatch) {
+  return {
+    unselectPizza() {
+      dispatch(unselectPizza())
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PizzaDetails);

@@ -1,5 +1,5 @@
 export const selectPizza = (pizzaID) => ({
-  type: "SELECT",
+  type: "SELECT_PIZZA",
   payload: pizzaID
 })
 
